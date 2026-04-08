@@ -12,7 +12,7 @@ A smart autocompletion script for the `ollama` CLI in Bash.
 ### Temporary Usage (Current Session)
 Source the script directly in your terminal:
 ```bash
-source ./ollama-autocompletion.sh
+source ./ollama-bash-completion.sh
 ```
 
 ### Permanent Installation
@@ -21,12 +21,12 @@ To have it load automatically every time you open a terminal:
 1. Copy the script to a safe location, or the default bash-completion user directory:
 ```bash
 mkdir -p ~/.local/share/bash-completion/completions
-cp ollama-autocompletion.sh ~/.local/share/bash-completion/completions/ollama
+cp ollama-bash-completion.sh ~/.local/share/bash-completion/completions/ollama
 ```
 
 2. Alternatively, you can add it to your `.bashrc`:
 ```bash
-echo "source \"$(pwd)/ollama-autocompletion.sh\"" >> ~/.bashrc
+echo "source \"$(pwd)/ollama-bash-completion.sh\"" >> ~/.bashrc
 source ~/.bashrc
 ```
 
