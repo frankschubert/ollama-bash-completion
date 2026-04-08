@@ -35,3 +35,4 @@ Try typing the following and hitting `<TAB>`:
 - `ollama r<TAB>` -> completes to `rm` or `run`
 - `ollama run <TAB>` -> lists your downloaded models
 - `ollama pull l<TAB>` -> lists popular models like `llama3`, `llava`
+- `ollama pull llama3:<TAB>` -> fetches and suggests available tags like `8b`, `70b`, `instruct`, etc.
