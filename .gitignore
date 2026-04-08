@@ -1,0 +1,31 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.buildpath
+.settings/
+
+# Log files
+*.log
+logs/
+
+# Temporary and test files generated during development
+test_*.sh
+comp*.log
+tmp/
+temp/
+
+# Shell/Bash specific
+.bash_history
