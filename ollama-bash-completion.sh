@@ -30,6 +30,21 @@ _ollama_completion() {
     # Determine which top-level command was entered
     local cmd="${words[1]}"
 
+    # Per-command flags, offered once the current word starts with '-'
+    # (so model-name completion still wins for a bare TAB after the subcommand).
+    if [[ "$cur" == -* ]]; then
+        local flags=""
+        case "${cmd}" in
+            show)   flags="--license --modelfile --parameters --system --template --verbose --help" ;;
+            run)    flags="--dimensions --format --hidethinking --insecure --keepalive --nowordwrap --think --truncate --verbose --help" ;;
+            pull)   flags="--insecure --help" ;;
+            create) flags="--combine --draft-quantize --file --force --quantize --help" ;;
+            *)      flags="--help" ;;
+        esac
+        COMPREPLY=( $(compgen -W "${flags}" -- "$cur") )
+        return 0
+    fi
+
     case "${cmd}" in
         run|rm|show|push|cp)
             # Suggest only downloaded (local) models for these commands
@@ -37,7 +52,7 @@ _ollama_completion() {
             local local_models=$(ollama list 2>/dev/null | awk 'NR>1 {print $1}')
             COMPREPLY=( $(compgen -W "${local_models}" -- "$cur") )
             ;;
-        
+
         pull)
             local suggestions=""
             
